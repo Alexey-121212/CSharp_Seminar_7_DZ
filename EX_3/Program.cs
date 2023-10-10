@@ -32,9 +32,9 @@
 // 9.00    11.00   13.00   15.00
 // */
 
-int n = 3;
-int m = 4;
-int k = 2;
+int n = 4;
+int m = 5;
+int k = 3;
 
 Console.Clear();
 int[,] result = CreateIncreasingMatrix(n, m, k);
@@ -87,14 +87,15 @@ static double[] FindAverageInColumns(int[,] matrix)
 {
     // Введите свое решение ниже
     double[] result = new double[matrix.GetLength(1)];
-    int[] temp = new int[matrix.GetLength(0)];
+    double temp;
     for (int i = 0; i < matrix.GetLength(1); i++)
     {
+        temp = 0;
         for (int j = 0; j < matrix.GetLength(0); j++)
         {
-            temp[j] = matrix[j,i];
+            temp += matrix[j,i];
         }
-        result[i] = temp.Average();
+        result[i] = temp / matrix.GetLength(0);
     }
     return result;
 }
